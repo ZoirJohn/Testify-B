@@ -15,5 +15,8 @@ func LoadConfig() {
 		os.Exit(1)
 	}
 	defer conn.Close(context.Background())
-	conn.Ping(context.Background())
+	err = conn.Ping(context.Background())
+	if err != nil {
+		fmt.Println(err)
+	}
 }
